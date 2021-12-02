@@ -1,13 +1,16 @@
 import React from "react";
 import Todo from "./Todo";
-const Todolist =({todoList,deleteHandler,doneHandler})=>{
+import { useSelector } from "react-redux";
+export default function Todolist(){
+
+
+const todolist =useSelector(state=>state.todos)
    
 return(
 <div className="todoListContainer">
-      {todoList.map((el) => (
-        <Todo  el={el} deleteHandler={deleteHandler}  doneHandler={doneHandler} />
+      {todolist.map((el) => (
+        <Todo  el={el}  />
       ))}
     </div>
   )
 }
-export default Todolist;

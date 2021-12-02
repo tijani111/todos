@@ -1,11 +1,13 @@
 import React from "react";
-const Todo =({el,deleteHandler,doneHandler})=>{
-
+import { useDispatch } from "react-redux";
+import { deleteHandler,doneHandler } from "./redux/action";
+const Todo =({el})=>{
+ const dispatch = useDispatch()
 const deleteTodo=()=>{
-deleteHandler(el.id);
+dispatch(deleteHandler(el.id));
 };
 const doneTodo=()=>{
-    doneHandler(el.id);
+    dispatch(doneHandler(el.id));
     };
     return(
 <div className="todoContainer">

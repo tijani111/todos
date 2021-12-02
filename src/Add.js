@@ -1,14 +1,17 @@
 
 import React from "react";
-const Add =({addHandler,input,setInput})=>{
-   
+import { addHandler } from "./redux/action";
+import { useDispatch } from "react-redux";
+ 
+const Add =({input,setInput})=>{
+    const dispatch = useDispatch()
     const inputHandler=(e)=>{
         setInput(e.target.value);
     }
  
     const addTodo=()=>{ 
         const newUser={text:input,id:Math.random(),isDone:false};
-         addHandler(newUser);
+         dispatch(addHandler(newUser));
         setInput("");
     };
   
