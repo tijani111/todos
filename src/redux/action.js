@@ -1,4 +1,4 @@
-import {DELETE,DONE,ADD} from"./action-types"
+import {FILTERUNDONE,FILTERDONE,DELETE,DONE,ADD} from"./action-types"
 export const deleteHandler=(ID)=>{
     return {
         type:DELETE,
@@ -17,3 +17,20 @@ export const addHandler=(newTodo)=>{
         payload:newTodo
     }
 }
+export const filterdoneHandler=()=>{
+    return {
+        type:FILTERDONE  
+    }
+}
+export const filterundoneHandler=()=>{
+    return {
+        type:FILTERUNDONE  
+    }
+}
+//export const editHandler=(ID,newTodo)=>{
+  //  return {
+  //      type:EDIT,
+  //      payloa:ID,
+  //      payload:newTodo
+   // }
+//}//

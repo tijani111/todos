@@ -1,6 +1,7 @@
-import {DELETE,DONE,ADD} from"./action-types"
+import {FILTERDONE,DELETE,DONE,ADD, FILTERUNDONE} from"./action-types"
 const initialState={
     todos:[{text:"Read a book",id:5,isDone:false},{text:"Play Football",id:6,isDone:false},{text:"Shopping",id:7,isDone:false}]
+
 }
 export const todosReducer=(state=initialState,action)=>{
     switch (action.type) {
@@ -13,7 +14,18 @@ export const todosReducer=(state=initialState,action)=>{
            case ADD:return {
             ...state,todos:[...state.todos,action.payload]
         }
-    
+      //  case EDIT:return{
+       //     ...state,todos:state.todos
+       // }//
+       
+        case FILTERDONE:return{
+            ...state,todos:state.todos.filter((e)=>(e.isDone))
+        }
+        case FILTERUNDONE:return{
+            ...state,todos:state.todos.filter((e)=>(!e.isDone))
+        }
+     
+     
         default:
          return state 
     }

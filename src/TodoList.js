@@ -8,9 +8,11 @@ const todolist =useSelector(state=>state.todos)
    
 return(
 <div className="todoListContainer">
+    
       {todolist.map((el) => (
         <Todo  el={el}  />
-      ))}
+         ))}
+
     </div>
   )
 }
